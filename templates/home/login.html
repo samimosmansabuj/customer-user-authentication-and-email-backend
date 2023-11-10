@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Login</title>
+{% endblock title %}
+
+
+{% block body_content %}
+
+<!-- <div class="container">
+    <form action="">
+        {{form.as_p}}
+        <input type="submit" value="Submit">
+    </form>
+</div> -->
+
+<div class="container">
+<form style="margin-top: 20px; width: 500px; margin: auto;" novalidate method="POST">
+    {% csrf_token %}
+    <div>
+        <h1 class="mb-5" style="text-align: center;">Login Your Account</h1>
+    </div>
+    <div>
+        {% include './message.html' %}
+    </div>
+    <div class="form-group">
+      <label for="exampleInputEmail1">Username or Email Address</label>
+
+      <!-- <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"> -->
+      {{form.username}}
+      {{form.username.errors}}
+
+<!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Password</label>
+
+      <!-- <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password"> -->
+
+      {{form.password}}
+      {{form.password.errors}}
+    </div>
+
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+
+
+{% endblock body_content %}
